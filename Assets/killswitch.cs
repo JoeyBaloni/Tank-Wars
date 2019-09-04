@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class killswitch : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject loseMessage;
     private void OnCollisionEnter(Collision collision)
     {
         
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(player);
+            Endgame();
         }
+    }
+    public void Endgame()
+    {
+        Time.timeScale = 0;
+        loseMessage.SetActive(true);
     }
 }

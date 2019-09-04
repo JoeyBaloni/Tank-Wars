@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public int ammo = 100;
 
     public ParticleSystem muzzleFlash;
+    public AudioSource tankshot;
 
     private void Start()
     {
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time > nextFire && ammo > 0 )
         {
             muzzleFlash.Play();
+            tankshot.Play();
             Instantiate(missile, shotspawn.position, shotspawn.rotation);
             nextFire = Time.time + fireRate;
             ammo -= 1;
